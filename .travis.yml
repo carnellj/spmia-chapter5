@@ -25,5 +25,5 @@ env:
 script:
 - cd $TEST_DIR
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-- mvn clean package docker:build
+- mvn clean package docker:build -U
 - docker push $TMX_DOCKER_IMAGE
