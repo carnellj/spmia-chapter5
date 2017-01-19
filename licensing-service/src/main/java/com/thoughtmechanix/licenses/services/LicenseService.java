@@ -7,6 +7,9 @@ import com.thoughtmechanix.licenses.config.ServiceConfig;
 import com.thoughtmechanix.licenses.model.License;
 import com.thoughtmechanix.licenses.model.Organization;
 import com.thoughtmechanix.licenses.repository.LicenseRepository;
+import com.thoughtmechanix.licenses.utils.UserContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +20,7 @@ import java.util.UUID;
 
 @Service
 public class LicenseService {
-
+    private static final Logger logger = LoggerFactory.getLogger(LicenseService.class);
     @Autowired
     private LicenseRepository licenseRepository;
 
@@ -76,6 +79,7 @@ public class LicenseService {
                      @HystrixProperty(name="metrics.rollingStats.numBuckets", value="5")}
     )
     public List<License> getLicensesByOrg(String organizationId){
+        logger.debug("LicenseService.getLicensesByOrg  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         randomlyRunLong();
 
         return licenseRepository.findByOrganizationId(organizationId);
