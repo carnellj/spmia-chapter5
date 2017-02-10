@@ -59,12 +59,11 @@ public class LicenseService {
 
     private void sleep(){
         try {
-            Thread.sleep(2000);
+            Thread.sleep(11000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
 
     @HystrixCommand(fallbackMethod = "buildFallbackLicenseList",
             threadPoolKey = "licenseByOrgThreadPool",
