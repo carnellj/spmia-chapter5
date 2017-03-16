@@ -5,9 +5,9 @@ By the time you are done reading this chapter you will have built and/or deploye
 
 1.  A Spring Cloud Config server that is deployed as Docker container and can manage a services configuration information using a file system or GitHub-based repository.
 2.  A Eureka server running as a Spring-Cloud based service.  This service will allow multiple service instances to register with it.  Clients that need to call a service will use Eureka to lookup the physical location of the target service.
-2.  A organization service that will manage organization data used within EagleEye.
-3.  A licensing service that will manage licensing data used within EagleEye.
-4.  A Postgres SQL database used to hold the data for these two services.
+3.  A organization service that will manage organization data used within EagleEye.
+4.  A licensing service that will manage licensing data used within EagleEye.
+5.  A Postgres SQL database used to hold the data for these two services.
 
 # Software needed
 1.	Apache Maven (http://apache.maven.org). I used version 3.3.9 of the Maven. I chose Maven because, while other build tools like Gradle are extremely popular, Maven is still the pre-dominate build tool in use in the Java ecosystem. All of the code examples in this book have been compiled with Java version 1.8.
